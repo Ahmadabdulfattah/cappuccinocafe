@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cappuccino - Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc; /* Beige */
+        }
+        header {
+            background-color: #c0392b; /* Red */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        header img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        section {
+            padding: 20px;
+            max-width: 600px; /* Limit the width of the menu */
+            width: 100%; /* Make it responsive */
+        }
+        h2 {
+            color: #c0392b; /* Red */
+            font-weight: bold;
+        }
+        h3 {
+            color: #c0392b; /* Red */
+            font-weight: bold;
+        }
+        .menu-item {
+            background-color: #c0392b; /* Red */
+            color: #d2b48c; /* Nescafe color */
+            padding: 10px;
+            margin: 5px 0; /* Vertical spacing */
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between; /* Aligns item name and price */
+            align-items: center; /* Center vertically */
+            width: 100%; /* Full width */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #c0392b; /* Red */
+            color: #fff;
+        }
+        .category-button {
+            background-color: #c0392b; /* Red */
+            color: #d2b48c; /* Nescafe color */
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .category-button:hover {
+            background-color: #a52a25; /* Darker Red */
+        }
+        .menu-category {
+            display: none; /* Hide all categories by default */
+        }
+        .menu-category.show {
+            display: block; /* Show the selected category */
+        }
+    </style>
+    <script>
+        function showCategory(category) {
+            const categories = document.querySelectorAll('.menu-category');
+            categories.forEach(cat => {
+                cat.classList.remove('show'); // Hide all categories
+            });
+
+            if (category === 'all-items') {
+                // Show all categories
+                categories.forEach(cat => {
+                    cat.classList.add('show');
+                });
+            } else {
+                // Show the selected category
+                const selectedCategory = document.getElementById(category);
+                if (selectedCategory) {
+                    selectedCategory.classList.add('show');
+                }
+            }
+        }
+
+        window.onload = function() {
+            showCategory('all-items');
+        };
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Cappuccino</h1>
+    <p>Welcome to our cozy cafe!</p>
+</header>
+
+<section>
+    <h2>Menu</h2>
+
+    <div>
+        <button class="category-button" onclick="showCategory('all-items')">All Items</button>
+        <button class="category-button" onclick="showCategory('machine')">Machine</button>
+        <button class="category-button" onclick="showCategory('shakes')">Shakes</button>
+        <button class="category-button" onclick="showCategory('smoothies')">Smoothies</button>
+        <button class="category-button" onclick="showCategory('refreshers')">Refreshers</button>
+        <button class="category-button" onclick="showCategory('ice-cream')">Ice Cream</button>
+        <button class="category-button" onclick="showCategory('soft-drinks')">Soft Drinks</button>
+        <button class="category-button" onclick="showCategory('desserts')">Desserts</button>
+        <button class="category-button" onclick="showCategory('sandwich')">Sandwich</button>
+        <button class="category-button" onclick="showCategory('shisha')">Shisha</button>
+        <button class="category-button" onclick="showCategory('nuts')">Nuts</button>
+        <button class="category-button" onclick="showCategory('cold-drinks')">Cold Drinks</button>
+    </div>
+
+    <div id="machine" class="menu-category">
+        <h3>Machine</h3>
+        <div class="menu-item">Espresso <span>$1.10</span></div>
+        <div class="menu-item">Americano <span>$1.20</span></div>
+        <div class="menu-item">Macchiato <span>$1.50</span></div>
+        <div class="menu-item">Rakwa <span>$2.20</span></div>
+        <div class="menu-item">Nescafe <span>$2.00</span></div>
+        <div class="menu-item">Nescafe (Milk) <span>$2.25</span></div>
+        <div class="menu-item">Cappuccino <span>$2.50</span></div>
+        <div class="menu-item">Café Latte <span>$2.50</span></div>
+        <div class="menu-item">Café Latte (Caramel, Vanilla) <span>$3.00</span></div>
+        <div class="menu-item">Café Moccha <span>$3.50</span></div>
+        <div class="menu-item">Hot Chocolate <span>$3.50</span></div>
+        <div class="menu-item">Tea (Zhurat) <span>$1.10</span></div>
+    </div>
+
+    <div id="shakes" class="menu-category">
+        <h3>Shakes</h3>
+        <div class="menu-item">Chocolate <span>$3.75</span></div>
+        <div class="menu-item">Strawberry <span>$3.75</span></div>
+        <div class="menu-item">Cookie <span>$3.75</span></div>
+        <div class="menu-item">Lotus <span>$3.75</span></div>
+        <div class="menu-item">Caramel <span>$3.75</span></div>
+        <div class="menu-item">Vanilla <span>$3.75</span></div>
+    </div>
+
+    <div id="smoothies" class="menu-category">
+        <h3>Smoothies</h3>
+        <div class="menu-item">Mango <span>$3.50</span></div>
+        <div class="menu-item">Passion <span>$3.50</span></div>
+        <div class="menu-item">Strawberry <span>$3.50</span></div>
+    </div>
+
+    <div id="refreshers" class="menu-category">
+        <h3>Refreshers</h3>
+        <div class="menu-item">Iced Tea (Peach) <span>$3.50</span></div>
+        <div class="menu-item">Mojito (Passion, Mango, Strawberry) <span>$3.50</span></div>
+    </div>
+
+    <div id="cold-drinks" class="menu-category">
+        <h3>Cold Drinks</h3>
+        <div class="menu-item">Iced Latte Classic <span>$3.00</span></div>
+        <div class="menu-item">Iced Latte (Caramel, Vanilla) <span>$3.00</span></div>
+        <div class="menu-item">Spanish Latte <span>$3.00</span></div>
+        <div class="menu-item">Affogato <span>$3.00</span></div>
+        <div class="menu-item">Iced Affogato <span>$4.00</span></div>
+        <div class="menu-item">Frappe <span>$3.75</span></div>
+        <div class="menu-item">Iced Moccha <span>$4.00</span></div>
+        <div class="menu-item">Iced Chocolate <span>$4.00</span></div>
+        <div class="menu-item">Frappuccino <span>$4.00</span></div>
+        <div class="menu-item">Iced Caramel Macchiato <span>$4.00</span></div>
+        <div class="menu-item">Iced Americano <span>$3.00</span></div>
+    </div>
+
+    <div id="ice-cream" class="menu-category">
+        <h3>Ice Cream</h3>
+        <div class="menu-item">Ice Cream (Small) <span>$1.70</span></div>
+        <div class="menu-item">Ice Cream (Medium) <span>$2.25</span></div>
+        <div class="menu-item">Ice Cream (Large) <span>$2.75</span></div>
+        <div class="menu-item">Achta and Pistachio <span>$3.50</span></div>
+        <div class="menu-item">Special <span>$3.35</span></div>
+    </div>
+
+    <div id="soft-drinks" class="menu-category">
+        <h3>Soft Drinks</h3>
+        <div class="menu-item">Pepsi <span>$1.50</span></div>
+        <div class="menu-item">Mirinda <span>$1.50</span></div>
+        <div class="menu-item">7 Up <span>$1.50</span></div>
+        <div class="menu-item">Red Bull <span>$3.00</span></div>
+        <div class="menu-item">Dark Blue <span>$1.70</span></div>
+        <div class="menu-item">Laziza <span>$1.70</span></div>
+        <div class="menu-item">Vinut <span>$2.00</span></div>
+        <div class="menu-item">Rim Sparkling Water <span>$1.50</span></div>
+        <div class="menu-item">Water <span>$0.50</span></div>
+        <div class="menu-item">Orange Juice <span>$2.25</span></div>
+        <div class="menu-item">Lemon Mint <span>$3.00</span></div>
+    </div>
+
+    <div id="desserts" class="menu-category">
+        <h3>Desserts</h3>
+        <div class="menu-item">Cake <span>$2.75</span></div>
+        <div class="menu-item">Tiramisu <span>$2.75</span></div>
+        <div class="menu-item">Cheese Cake <span>$3.00</span></div>
+        <div class="menu-item">Eclair <span>$2.25</span></div>
+        <div class="menu-item">Tarte <span>$2.25</span></div>
+        <div class="menu-item">Brownie <span>$2.20</span></div>
+    </div>
+
+    <div id="sandwich" class="menu-category">
+        <h3>Sandwich</h3>
+        <div class="menu-item">Croissant (Chocolate) <span>$2.20</span></div>
+        <div class="menu-item">Croissant (Cheese) <span>$2.20</span></div>
+        <div class="menu-item">Ka3kee with Cheese <span>$2.70</span></div>
+    </div>
+
+    <div id="shisha" class="menu-category">
+        <h3>Shisha</h3>
+        <div class="menu-item">Regulare <span>$5.50</span></div>
+        <div class="menu-item">Jabali <span>$7.70</span></div>
+    </div>
+
+    <div id="nuts" class="menu-category">
+        <h3>Nuts</h3>
+        <div class="menu-item">Extra Nuts <span>$3.50</span></div>
+        <div class="menu-item">Peanuts <span>$1.70</span></div>
+        <div class="menu-item">Corn Nuts <span>$1.70</span></div>
+    </div>
+
+</section>
+
+<footer>
+    <p>Contact us: (961) 06 432-624 | Boulevard Fouad Chhab In Front of Alam's Pharmacy</p>
+    <p>Follow us on social media!</p>
+</footer>
+
+</body>
+</html>
+  
